@@ -1,0 +1,1378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop: Digital Marketing Strategies with Elves Alfredo Armindo</title>
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --primary: #10b981;
+            --primary-hover: #059669;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar Fixa */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            z-index: 1000;
+        }
+
+        .nav-brand {
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-brand span {
+            color: var(--accent);
+        }
+
+        .nav-btn {
+            background: var(--primary);
+            color: var(--bg-dark);
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .nav-btn:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            padding: 8rem 2rem 4rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .badge {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--primary);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        header h1 span {
+            color: var(--accent);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 650px;
+            margin: 0 auto 2rem auto;
+            color: var(--text-muted);
+        }
+
+        .event-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .info-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* Contador Regressivo */
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .countdown-box {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 1rem 1.2rem;
+            border-radius: 12px;
+            text-align: center;
+            min-width: 80px;
+        }
+
+        .countdown-box span {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .countdown-box small {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(56, 189, 248, 0.3);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            color: var(--accent);
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Timeline / Agenda */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+            padding-left: 2rem;
+            border-left: 2px solid rgba(56, 189, 248, 0.2);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.35rem;
+            top: 0.3rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        .timeline-item h3 {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-item span {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Testimonials */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testimonial-card p {
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--text-main);
+            font-size: 0.9rem;
+        }
+
+        /* FAQ */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .faq-item h3 {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .instructor-section {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .instructor-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--bg-dark);
+            flex-shrink: 0;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+        }
+
+        .instructor-bio h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .instructor-bio p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info-box {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        .contact-info-box span {
+            background: rgba(56, 189, 248, 0.1);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        /* Botão do Portefólio no Bloco do Instrutor */
+        .portfolio-btn {
+            display: inline-block;
+            margin-top: 1.2rem;
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .portfolio-btn:hover {
+            background: var(--accent);
+            color: var(--bg-dark);
+        }
+
+        .form-container {
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: var(--primary);
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            background-color: var(--primary);
+            color: var(--bg-dark);
+            border: none;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: 800;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .form-guarantee {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Botão Flutuante WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 999;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menu Superior Fixo -->
+    <nav class="navbar">
+        <div class="nav-brand">Elves <span>Armindo</span></div>
+        <a href="#register" class="nav-btn">Secure Spot</a>
+    </nav>
+
+    <header>
+        <span class="badge">100% Online & Free</span>
+        <h1>Master <span>Digital Marketing</span> in Practice</h1>
+        <p>Learn proven strategies to structure high-impact campaigns and scale your results online.</p>
+        
+        <div class="event-info">
+            <div class="info-item">📅 December 20</div>
+            <div class="info-item">⏰ At 5:00 PM</div>
+        </div>
+
+        <!-- Contador Regressivo -->
+        <div class="countdown-container">
+            <div class="countdown-box">
+                <span id="days">05</span>
+                <small>Days</small>
+            </div>
+            <div class="countdown-box">
+                <span id="hours">12</span>
+                <small>Hours</small>
+            </div>
+            <div class="countdown-box">
+                <span id="minutes">45</span>
+                <small>Mins</small>
+            </div>
+            <div class="countdown-box">
+                <span id="seconds">30</span>
+                <small>Secs</small>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- What You Will Learn -->
+        <h2 class="section-title">What You Will Learn</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>🚀 Organic Traffic</h3>
+                <p>Discover how to attract potential clients without spending on ads, building solid authority in your niche.</p>
+            </div>
+            <div class="card">
+                <h3>🎯 High-Converting Offers</h3>
+                <p>Learn how to structure compelling copywriting and calls to action that turn curious visitors into loyal buyers.</p>
+            </div>
+            <div class="card">
+                <h3>📊 Real Metrics</h3>
+                <p>Know exactly which indicators to track to optimize your investments and marketing efforts.</p>
+            </div>
+        </div>
+
+        <!-- Workshop Agenda -->
+        <h2 class="section-title">Workshop Agenda</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <span>Part 1 (17:00 - 17:30)</span>
+                <h3>The Modern Digital Landscape</h3>
+                <p>Understanding current consumer behavior and how to position your brand effectively online.</p>
+            </div>
+            <div class="timeline-item">
+                <span>Part 2 (17:30 - 18:15)</span>
+                <h3>Content & Organic Growth Blueprint</h3>
+                <p>Step-by-step framework to attract high-value leads consistently without heavy ad budgets.</p>
+            </div>
+            <div class="timeline-item">
+                <span>Part 3 (18:15 - 19:00)</span>
+                <h3>Live Q&A & Strategy Review</h3>
+                <p>Real-time analysis of participants' projects and open space for specific questions.</p>
+            </div>
+        </div>
+
+        <!-- Mission & Vision -->
+        <h2 class="section-title">Mission & Vision</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>🎯 Our Mission</h3>
+                <p>To empower professionals, entrepreneurs, and brands with practical, highly effective digital marketing knowledge, enabling them to build a powerful online presence and achieve sustainable growth.</p>
+            </div>
+            <div class="card">
+                <h3>👁️ Our Vision</h3>
+                <p>To become a leading reference in digital marketing education, transforming how people leverage internet strategies to reach audiences and scale results worldwide.</p>
+            </div>
+        </div>
+
+        <!-- Testimonials -->
+        <h2 class="section-title">What Participants Say</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p>"Elves explains complex strategies in a way that is super easy to apply immediately. My online reach improved drastically after applying his tips!"</p>
+                <div class="testimonial-author">— Carlos M., Entrepreneur</div>
+            </div>
+            <div class="testimonial-card">
+                <p>"The best practical workshop I've attended this year. No fluff, just pure actionable advice that works in the real world."</p>
+                <div class="testimonial-author">— Sofia R., Digital Creator</div>
+            </div>
+        </div>
+
+        <!-- Meet Your Instructor & Educator Bio -->
+        <h2 class="section-title">Meet Your Instructor</h2>
+        <div class="instructor-section">
+            <div class="instructor-avatar">EA</div>
+            <div class="instructor-bio">
+                <h3>Elves Alfredo Armindo</h3>
+                <p>Specialist in digital marketing and conversion strategies, with extensive experience in helping professionals and brands scale their presence and results on the internet in a structured and efficient way.</p>
+                
+                <!-- Nova Subsecção de Docente -->
+                <p style="margin-top: 1rem; color: var(--text-main);"><strong>👨‍🏫 Marketing Educator & Professor:</strong> Dedicated to forming the next generation of digital marketers, combining academic theory with real-world, hands-on enterprise strategies to ensure students master both concepts and execution.</p>
+                
+                <div class="contact-info-box">
+                    <span>📧 Email: e.armindo93@gmail.com</span>
+                    <span>📞 Contact: 862336053</span>
+                </div>
+
+                <!-- Botão de Acesso ao Portefólio para Alunos -->
+                <a href="#portfolio" class="portfolio-btn">📁 View Student Portfolio & Projects</a>
+            </div>
+        </div>
+
+        <!-- Secção Dedicada ao Portefólio para Alunos -->
+        <h2 id="portfolio" class="section-title">Student Portfolio & Resources</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>📂 Practical Projects</h3>
+                <p>Explore real-world campaigns, case studies, and templates developed throughout our marketing modules.</p>
+            </div>
+            <div class="card">
+                <h3>🏆 Student Showcases</h3>
+                <p>Check out outstanding projects and landing pages built by students who applied these exact methodologies.</p>
+            </div>
+            <div class="card">
+                <h3>📚 Academic & Extra Materials</h3>
+                <p>Access recommended reading lists, frameworks, and additional toolkits designed to accelerate your growth.</p>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <h3>Is the workshop really free?</h3>
+                <p>Yes! The live workshop is 100% free to attend for everyone who registers in advance.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Will there be a replay available?</h3>
+                <p>The replay will be exclusive to registered participants for a limited time after the live transmission.</p>
+            </div>
+            <div class="faq-item">
+                <h3>How do I access the live session?</h3>
+                <p>After submitting your registration below, you will receive a confirmation email with the private link to join the room.</p>
+            </div>
+        </div>
+
+        <!-- Secure Your Free Spot / Form -->
+        <h2 id="register" class="section-title">Secure Your Free Spot</h2>
+        <div class="form-container">
+            <form action="https://formspree.io/f/mjygrjdy" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Best Email</label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                </div>
+                <button type="submit" class="btn">Register for Free</button>
+            </form>
+            <div class="form-guarantee">
+                <span>🔒 Secure & Private</span>
+                <span>⚡ Instant Access Link</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botão WhatsApp Flutuante -->
+    <a href="https://wa.me/258862336053" target="_blank" class="whatsapp-float" title="Contact via WhatsApp">
+        💬
+    </a>
+
+    <footer>
+        <p>&copy; 2026 Elves Alfredo Armindo. All rights reserved.</p>
+    </footer>
+
+    <!-- Script Simples para o Contador -->
+    <script>
+        let days = 5, hours = 14, minutes = 32, seconds = 45;
+        setInterval(() => {
+            seconds--;
+            if (seconds < 0) { seconds = 59; minutes--; }
+            if (minutes < 0) { minutes = 59; hours--; }
+            if (hours < 0) { hours = 23; days--; }
+            document.getElementById('days').innerText = String(days).padStart(2, '0');
+            document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+            document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+        }, 1000);
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workshop: Digital Marketing Strategies with Elves Alfredo Armindo</title>
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-card: #1e293b;
+            --primary: #10b981;
+            --primary-hover: #059669;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #38bdf8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar Fixa */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            z-index: 1000;
+        }
+
+        .nav-brand {
+            font-weight: 800;
+            font-size: 1.1rem;
+            color: var(--text-main);
+            letter-spacing: -0.5px;
+        }
+
+        .nav-brand span {
+            color: var(--accent);
+        }
+
+        .nav-btn {
+            background: var(--primary);
+            color: var(--bg-dark);
+            padding: 0.5rem 1.2rem;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .nav-btn:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        header {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
+            padding: 8rem 2rem 4rem 2rem;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .badge {
+            background: rgba(16, 185, 129, 0.15);
+            color: var(--primary);
+            padding: 0.5rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        header h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        header h1 span {
+            color: var(--accent);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            max-width: 650px;
+            margin: 0 auto 2rem auto;
+            color: var(--text-muted);
+        }
+
+        .event-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .info-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        /* Contador Regressivo */
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .countdown-box {
+            background: rgba(30, 41, 59, 0.7);
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            padding: 1rem 1.2rem;
+            border-radius: 12px;
+            text-align: center;
+            min-width: 80px;
+        }
+
+        .countdown-box span {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--accent);
+        }
+
+        .countdown-box small {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            font-weight: 700;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .card {
+            background: var(--bg-card);
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(56, 189, 248, 0.3);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h3 {
+            margin-bottom: 1rem;
+            color: var(--accent);
+            font-size: 1.3rem;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .tag {
+            background: rgba(56, 189, 248, 0.1);
+            color: var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            display: inline-block;
+            margin-top: 1rem;
+        }
+
+        /* Timeline / Agenda */
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+            padding-left: 2rem;
+            border-left: 2px solid rgba(56, 189, 248, 0.2);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2.5rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.35rem;
+            top: 0.3rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        .timeline-item h3 {
+            font-size: 1.2rem;
+            color: var(--text-main);
+            margin-bottom: 0.3rem;
+        }
+
+        .timeline-item span {
+            font-size: 0.85rem;
+            color: var(--primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Testimonials */
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .testimonial-card {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testimonial-card p {
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--text-main);
+            font-size: 0.9rem;
+        }
+
+        /* FAQ */
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto 4rem auto;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .faq-item h3 {
+            font-size: 1.1rem;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-item p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .instructor-section {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 3rem;
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .instructor-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--bg-dark);
+            flex-shrink: 0;
+            box-shadow: 0 0 20px rgba(56, 189, 248, 0.2);
+        }
+
+        .instructor-bio h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .instructor-bio p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info-box {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+            color: var(--text-main);
+        }
+
+        .contact-info-box span {
+            background: rgba(56, 189, 248, 0.1);
+            padding: 0.4rem 0.8rem;
+            border-radius: 6px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+        }
+
+        .portfolio-btn {
+            display: inline-block;
+            margin-top: 1.2rem;
+            background: transparent;
+            color: var(--accent);
+            border: 2px solid var(--accent);
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .portfolio-btn:hover {
+            background: var(--accent);
+            color: var(--bg-dark);
+        }
+
+        .form-container {
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            max-width: 600px;
+            margin: 0 auto;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            color: white;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: var(--primary);
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            background-color: var(--primary);
+            color: var(--bg-dark);
+            border: none;
+            padding: 1rem;
+            font-size: 1.1rem;
+            font-weight: 800;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        .form-guarantee {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Botão WhatsApp Flutuante */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #25d366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            z-index: 999;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 4rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menu Superior Fixo -->
+    <nav class="navbar">
+        <div class="nav-brand">Elves <span>Armindo</span></div>
+        <a href="#register" class="nav-btn">Secure Spot</a>
+    </nav>
+
+    <header>
+        <span class="badge">100% Online & Free</span>
+        <h1>Master <span>Digital Marketing</span> in Practice</h1>
+        <p>Learn proven strategies to structure high-impact campaigns and scale your results online.</p>
+        
+        <div class="event-info">
+            <div class="info-item">📅 December 20</div>
+            <div class="info-item">⏰ At 5:00 PM</div>
+        </div>
+
+        <!-- Contador Regressivo -->
+        <div class="countdown-container">
+            <div class="countdown-box">
+                <span id="days">05</span>
+                <small>Days</small>
+            </div>
+            <div class="countdown-box">
+                <span id="hours">12</span>
+                <small>Hours</small>
+            </div>
+            <div class="countdown-box">
+                <span id="minutes">45</span>
+                <small>Mins</small>
+            </div>
+            <div class="countdown-box">
+                <span id="seconds">30</span>
+                <small>Secs</small>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- What You Will Learn -->
+        <h2 class="section-title">What You Will Learn</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>🚀 Organic Traffic</h3>
+                <p>Discover how to attract potential clients without spending on ads, building solid authority in your niche.</p>
+            </div>
+            <div class="card">
+                <h3>🎯 High-Converting Offers</h3>
+                <p>Learn how to structure compelling copywriting and calls to action that turn curious visitors into loyal buyers.</p>
+            </div>
+            <div class="card">
+                <h3>📊 Real Metrics</h3>
+                <p>Know exactly which indicators to track to optimize your investments and marketing efforts.</p>
+            </div>
+        </div>
+
+        <!-- Workshop Agenda -->
+        <h2 class="section-title">Workshop Agenda</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <span>Part 1 (17:00 - 17:30)</span>
+                <h3>The Modern Digital Landscape</h3>
+                <p>Understanding current consumer behavior and how to position your brand effectively online.</p>
+            </div>
+            <div class="timeline-item">
+                <span>Part 2 (17:30 - 18:15)</span>
+                <h3>Content & Organic Growth Blueprint</h3>
+                <p>Step-by-step framework to attract high-value leads consistently without heavy ad budgets.</p>
+            </div>
+            <div class="timeline-item">
+                <span>Part 3 (18:15 - 19:00)</span>
+                <h3>Live Q&A & Strategy Review</h3>
+                <p>Real-time analysis of participants' projects and open space for specific questions.</p>
+            </div>
+        </div>
+
+        <!-- Mission & Vision -->
+        <h2 class="section-title">Mission & Vision</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>🎯 Our Mission</h3>
+                <p>To empower professionals, entrepreneurs, and brands with practical, highly effective digital marketing knowledge, enabling them to build a powerful online presence and achieve sustainable growth.</p>
+            </div>
+            <div class="card">
+                <h3>👁️ Our Vision</h3>
+                <p>To become a leading reference in digital marketing education, transforming how people leverage internet strategies to reach audiences and scale results worldwide.</p>
+            </div>
+        </div>
+
+        <!-- Testimonials -->
+        <h2 class="section-title">What Participants Say</h2>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <p>"Elves explains complex strategies in a way that is super easy to apply immediately. My online reach improved drastically after applying his tips!"</p>
+                <div class="testimonial-author">— Carlos M., Entrepreneur</div>
+            </div>
+            <div class="testimonial-card">
+                <p>"The best practical workshop I've attended this year. No fluff, just pure actionable advice that works in the real world."</p>
+                <div class="testimonial-author">— Sofia R., Digital Creator</div>
+            </div>
+        </div>
+
+        <!-- Meet Your Instructor -->
+        <h2 class="section-title">Meet Your Instructor</h2>
+        <div class="instructor-section">
+            <div class="instructor-avatar">EA</div>
+            <div class="instructor-bio">
+                <h3>Elves Alfredo Armindo</h3>
+                <p>Specialist in digital marketing and conversion strategies, with extensive experience in helping professionals and brands scale their presence and results on the internet in a structured and efficient way.</p>
+                
+                <p style="margin-top: 1rem; color: var(--text-main);"><strong>👨‍🏫 Marketing Educator & Professor:</strong> Dedicated to forming the next generation of digital marketers, combining academic theory with real-world, hands-on enterprise strategies.</p>
+                
+                <div class="contact-info-box">
+                    <span>📧 Email: e.armindo93@gmail.com</span>
+                    <span>📞 Contact: 862336053</span>
+                </div>
+
+                <a href="#portfolio-section" class="portfolio-btn">📁 View Student Portfolio & Projects</a>
+            </div>
+        </div>
+
+        <!-- FAQ -->
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <div class="faq-container">
+            <div class="faq-item">
+                <h3>Is the workshop really free?</h3>
+                <p>Yes! The live workshop is 100% free to attend for everyone who registers in advance.</p>
+            </div>
+            <div class="faq-item">
+                <h3>Will there be a replay available?</h3>
+                <p>The replay will be exclusive to registered participants for a limited time after the live transmission.</p>
+            </div>
+            <div class="faq-item">
+                <h3>How do I access the live session?</h3>
+                <p>After submitting your registration below, you will receive a confirmation email with the private link to join the room.</p>
+            </div>
+        </div>
+
+        <!-- Portefólio Adicionado na mesma página -->
+        <h2 id="portfolio-section" class="section-title">Student Portfolio & Projects</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>🚀 E-Commerce Scaling Framework</h3>
+                <p>Designed multi-channel organic and paid strategies that scaled online brand visibility efficiently.</p>
+                <span class="tag">Digital Strategy</span>
+            </div>
+            <div class="card">
+                <h3>🎯 High-Converting Landing Pages</h3>
+                <p>Developed optimized conversion funnels focused on persuasive copywriting and lead generation.</p>
+                <span class="tag">Conversion Optimization</span>
+            </div>
+            <div class="card">
+                <h3>💼 Student Showcases & Ventures</h3>
+                <p>Selected landing pages, branding designs, and campaign launches deployed by workshop participants.</p>
+                <span class="tag">Student Showcase</span>
+            </div>
+        </div>
+
+        <!-- Secure Your Free Spot / Form -->
+        <h2 id="register" class="section-title">Secure Your Free Spot</h2>
+        <div class="form-container">
+            <form action="https://formspree.io/f/mjygrjdy" method="POST">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Best Email</label>
+                    <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                </div>
+                <button type="submit" class="btn">Register for Free</button>
+            </form>
+            <div class="form-guarantee">
+                <span>🔒 Secure & Private</span>
+                <span>⚡ Instant Access Link</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Botão WhatsApp Flutuante -->
+    <a href="https://wa.me/258862336053" target="_blank" class="whatsapp-float" title="Contact via WhatsApp">
+        💬
+    </a>
+
+    <footer>
+        <p>&copy; 2026 Elves Alfredo Armindo. All rights reserved.</p>
+    </footer>
+
+    <!-- Script do Contador -->
+    <script>
+        let days = 5, hours = 14, minutes = 32, seconds = 45;
+        setInterval(() => {
+            seconds--;
+            if (seconds < 0) { seconds = 59; minutes--; }
+            if (minutes < 0) { minutes = 59; hours--; }
+            if (hours < 0) { hours = 23; days--; }
+            document.getElementById('days').innerText = String(days).padStart(2, '0');
+            document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+            document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+        }, 1000);
+    </script>
+</body>
+</html>
